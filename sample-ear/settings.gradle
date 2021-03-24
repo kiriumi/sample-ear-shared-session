@@ -1,0 +1,4 @@
+rootProject.name = 'sample-ear'
+
+//include 'web1'
+//include 'web2'

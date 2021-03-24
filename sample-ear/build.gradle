@@ -1,0 +1,46 @@
+apply plugin: 'ear'
+
+dependencies {
+
+    deploy project(path: ':web1', configuration: 'archives')
+    deploy project(path: ':web2', configuration: 'archives')
+
+    //deploy group: 'hoge.sample', name: 'web1', version: '1.0-SNAPSHOT'
+    //deploy group: 'hoge.sample', name: 'web2', version: '1.0-SNAPSHOT'
+    earlib group: 'log4j', name: 'log4j', version: '1.2.15', ext: 'jar'
+}
+
+allprojects {
+
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    // Javaの文字コード
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+}
+
+subprojects {
+
+    apply plugin: 'war'
+    apply plugin: 'eclipse-wtp'
+    apply plugin: 'maven'
+
+    group = 'hoge.sample'
+    version = '1.0-SNAPSHOT'
+
+    dependencies {
+
+        compileOnly group: 'javax', name: 'javaee-web-api', version: '8.0.1'
+        implementation group: 'org.primefaces', name: 'primefaces', version: '7.0'
+        compile group: 'org.projectlombok', name: 'lombok', version: '1.18.18'
+        testImplementation 'junit:junit:4.12'
+    }
+
+}

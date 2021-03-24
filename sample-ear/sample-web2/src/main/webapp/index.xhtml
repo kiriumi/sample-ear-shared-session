@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<head>
+<title>Web2 Index</title>
+</head>
+
+<f:metadata>
+    <f:viewAction action="#{index.init()}" />
+</f:metadata>
+
+<h:form id="form1" prependId="false">
+    <h:inputText id="aaa" value="#{index.hoge}" />
+    <h:button value="さんぷる" onclick="sample1();return" />
+    <p:commandButton value="さんぷる２" ajax="false" action="#{index.submit()}" />
+</h:form>
+
+<form id="form2" name="form2" method="post" action="http://localhost:8080/sample-web1/index.xhtml">
+    <h:inputHidden id="hogera" value="#{index.hoge}" />
+</form>
+
+<script>
+    function sample1() {
+        document.form2.submit();
+    }
+
+    window.onload = function() {
+        if(document.getElementById("aaa").value != "") {
+            sample1();
+        }
+
+    };
+</script>
+
+</html>

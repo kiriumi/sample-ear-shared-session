@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<head>
+    <title>Web1 Index</title>
+</head>
+
+<f:metadata>
+    <f:viewAction action="#{index.init()}" />
+</f:metadata>
+
+
+<h:form prependId="false">
+
+    インデックス１
+    <h:commandButton value="Web2に遷移" action="#{index.redirect()}" />
+    <h:commandButton value="インデックス２に遷移" action="#{index.redirect2()}" />
+
+</h:form>
+
+
+</html>

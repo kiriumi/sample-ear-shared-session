@@ -1,0 +1,17 @@
+plugins {
+    id 'war'
+    id 'eclipse-wtp'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compileOnly group: 'javax', name: 'javaee-web-api', version: '8.0.1'
+    implementation group: 'org.primefaces', name: 'primefaces', version: '8.0'
+}
